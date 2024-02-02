@@ -1,27 +1,34 @@
-# Front
+# Geoshop Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+This is meant to work with a geoshop-backend: https://github.com/sitn/geoshop-back
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ * Node >= 18
+ * @angular/cli
+ * typescript
 
-## Code scaffolding
+## Getting started without Docker
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+npm i
+```
 
-## Build
+Copy `src\assets\configs\config.json.tmpl` to `src\assets\configs\config.json` in order to configure your app.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Typical values for dev purposes are:
 
-## Running unit tests
+```json
+  "apiUrl": "https://sitn.ne.ch/geoshop2_prepub_api",
+  "mediaUrl": "https://sitn.ne.ch/geoshop2_prepub_media/images",
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+then:
 
-## Running end-to-end tests
+```sh
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## With Docker:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+An `.env.sample` is provided as an example.
