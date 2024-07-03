@@ -55,7 +55,7 @@ export class CatalogComponent implements OnInit {
       }, {})
     );
 
-    this.mediaUrl = this.configService.config?.mediaUrl;
+    this.mediaUrl = this.configService.config?.mediaUrl ? `${this.configService.config.mediaUrl}/` : '';
 
     this.infinite = merge(
       batchMap.pipe(map(v => Object.values(v))),

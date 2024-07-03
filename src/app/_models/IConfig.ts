@@ -7,6 +7,7 @@ export interface IBasemap {
   format: string;
 }
 
+// TODO it look like thie interface is never used -> remove it or use it!
 export interface IConfig {
   apiUrl: string;
   mediaUrl: string;

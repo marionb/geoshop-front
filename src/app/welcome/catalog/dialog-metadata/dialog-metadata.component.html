@@ -31,7 +31,7 @@
 <mat-card class="metadata-main-container">
   <mat-card-header>
     <div mat-card-avatar class="header-image"
-         [style.backgroundImage]="'url(' + mediaUrl + '/' + data.image_link + ')'"></div>
+         [style.backgroundImage]="'url(' + mediaUrl + data.image_link + ')'"></div>
     <mat-card-title-group>
       <mat-card-title>{{data.name}}</mat-card-title>
       <mat-card-subtitle>Métadonnée</mat-card-subtitle>
@@ -43,7 +43,7 @@
   <mat-card-content>
 
     <div class="image-center-container">
-      <img [src]="mediaUrl + '/' + data.image_link" [alt]="data.name">
+      <img [src]="mediaUrl + data.image_link" [alt]="data.name">
     </div>
 
 
