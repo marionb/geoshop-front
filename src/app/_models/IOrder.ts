@@ -6,6 +6,7 @@ import {Contact} from './IContact';
 import {PricingStatus} from './IPricing';
 import {IProduct} from './IProduct';
 import { IIdentity } from './IIdentity';
+import { ConstantsService } from '../constants.service';
 
 export interface IOrderType {
   id: number;
@@ -272,10 +273,10 @@ export class Order {
     }
 
     this.initializeGeometry(options.geom);
-    this.statusAsReadableIconText = Order.initializeStatus(options, this._isAllOrderItemCalculated);
+    this.statusAsReadableIconText = Order.initializeStatus(options);
   }
 
-  public static initializeStatus(order: IOrderSummary | IOrder, isPendingConfirm: boolean = false) {
+  public static initializeStatus(order: IOrderSummary | IOrder) {
     let result: IStatusAsReadableIcon = {
       iconName: '',
       text: '',
@@ -285,71 +286,70 @@ export class Order {
     switch (order.status) {
       case 'DRAFT':
         result = {
-          text: `Brouillon`,
+          text: ConstantsService.ORDER_STATUS.DRAFT,
           iconName: 'info',
           color: '#bbb'
         };
         break;
       case 'PENDING':
         result = {
-          text: 'En attente du devis',
+          text: ConstantsService.ORDER_STATUS.PENDING,
           iconName: 'calculate',
           color: '#7593f0'
         };
         break;
       case 'QUOTE_DONE':
         result = {
-          text: 'Devis réalisé, en attente de confirmation',
+          text: ConstantsService.ORDER_STATUS.QUOTE_DONE,
           iconName: 'check_outline',
           color: '#7593f0'
         };
         break;
       case 'READY':
         result = {
-          text: `Extraction en cours`,
+          text: ConstantsService.ORDER_STATUS.READY,
           iconName: 'info',
           color: '#7593f0'
         };
         break;
       case 'IN_EXTRACT':
         result = {
-          text: `Extraction en cours`,
+          text: ConstantsService.ORDER_STATUS.IN_EXTRACT,
           iconName: 'hourglass_empty',
           color: '#7593f0'
         };
         break;
       case 'PARTIALLY_DELIVERED':
         result = {
-          text: `Partiellement traitée`,
+          text: ConstantsService.ORDER_STATUS.PARTIALLY_DELIVERED,
           iconName: 'hourglass_bottom',
           color: '#7593f0'
         };
         break;
       case 'PROCESSED':
         result = {
-          text: `Traitée`,
+          text: ConstantsService.ORDER_STATUS.PROCESSED,
           iconName: 'check_outline',
           color: '#2bae66'
         };
         break;
       case 'ARCHIVED':
         result = {
-          text: `Archivée`,
+          text: ConstantsService.ORDER_STATUS.ARCHIVED,
           iconName: 'archive',
           color: '#000000'
         };
         break;
       case 'REJECTED':
         result = {
-          text: `Annulée`,
+          text: ConstantsService.ORDER_STATUS.REJECTED,
           iconName: 'cancel',
           color: '#000000'
         };
         break;
-
       default:
         result = {
-          text: `Etat inconnu`,
+          text: ConstantsService.ORDER_STATUS.UNKNOWN,
           iconName: 'info',
           color: '#E993B0'
         };

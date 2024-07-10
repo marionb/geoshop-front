@@ -14,7 +14,9 @@ import {Router} from '@angular/router';
 import {MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef} from '@angular/material/legacy-dialog';
 import {ConfirmDialogComponent} from '../../../_components/confirm-dialog/confirm-dialog.component';
 import Geometry from 'ol/geom/Geometry';
+import { ConstantsService } from 'src/app/constants.service';
 
+// TODO tranlsate after updating SnackBar!
 @Component({
   selector: 'gs2-order',
   templateUrl: './order.component.html',
@@ -31,6 +33,9 @@ export class OrderComponent implements OnInit {
   // Order items
   @ViewChild(WidgetHostDirective) orderItemTemplate: WidgetHostDirective;
   selectedOrder: Order;
+
+  // Constants
+  readonly DOWNLAOD = ConstantsService.DOWNLAOD;
 
   constructor(private cfr: ComponentFactoryResolver,
               private snackBar: MatSnackBar,

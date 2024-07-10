@@ -1,33 +1,33 @@
-<!-- TODO -->
+<!-- TODO links are pointing to NE speciffic locations-->
 <a color="primary" mat-button href="https://youtu.be/KIkISZdYSU0" target="_blank">
   <div class="flex-row">
     <mat-icon>support</mat-icon>
-    <span>Voir l'aide</span>
+    <span i18n="@@help.show">Voir l'aide</span>
   </div>
 </a>
 <a color="primary" mat-button href="https://rsn.ne.ch/DATA/program/books/rsne/pdf/2154211.pdf" target="_blank">
-  <div class="flex-row">
-    Informations sur la tarification
+  <div class="flex-row" i18n="@@help.pricing">
+    Informations sur la tarificatio
   </div>
 </a>
 <a color="primary" mat-button href="https://sitn.ne.ch/geoshop2_media/documents/contrat_sitn.pdf" target="_blank">
-  <div class="flex-row">
+  <div class="flex-row" i18n="@@help.conditions">
     Conditions d'utilisation
   </div>
 </a>
 <hr>
-<span class="padding-horizontal-15 questions">Avez-vous des questions ?</span>
+<span class="padding-horizontal-15 questions" i18n>Avez-vous des questions ?</span>
 
 <a mat-button color="primary" [href]="'tel:' + phoneNumber">
   <div class="flex-row">
-    <mat-icon color="primary">phone</mat-icon>
+    <mat-icon color="primary" i18n="@@main.phone">phone</mat-icon>
     <span>{{phoneLabel}}</span>
   </div>
 </a>
 
 <a mat-button color="primary" [href]="'mailto:' + email">
   <div class="flex-row">
-    <mat-icon color="primary">email</mat-icon>
+    <mat-icon color="primary" i18n="@@main.email">email</mat-icon>
     <span>{{email}}</span>
   </div>
 </a>

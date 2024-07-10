@@ -5,6 +5,7 @@ import {ApiService} from '../../_services/api.service';
 import {MatLegacySnackBar as MatSnackBar} from '@angular/material/legacy-snack-bar';
 import {Router} from '@angular/router';
 import {IUser, IUserToPost} from '../../_models/IUser';
+import { ConstantsService } from 'src/app/constants.service';
 
 @Component({
   selector: 'gs2-modify-profile',
@@ -14,6 +15,11 @@ import {IUser, IUserToPost} from '../../_models/IUser';
 export class ModifyProfileComponent implements OnInit {
 
   @HostBinding('class') class = 'main-container';
+
+  // Constants
+  readonly REQUIRED = ConstantsService.REQUIRED;
+  readonly WRONG_EMAIL = ConstantsService.WRONG_EMAIL;
+  readonly WRONG_PHONE = ConstantsService.WRONG_PHONE;
 
   formModifyUser = new UntypedFormGroup({});
   user: IUser;
@@ -78,6 +84,7 @@ export class ModifyProfileComponent implements OnInit {
       this.apiService.change(user)
         .subscribe(async (res) => {
           if (res) {
+            // TODO translate after updating snackbar
             this.snackBar.open(
               'Vos modifications ont été soumises aux gestionnaires du Geoshop' +
               ' et un email de confirmation vous a été envoyé. Vos modifications' +

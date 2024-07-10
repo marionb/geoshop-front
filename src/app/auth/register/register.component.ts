@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 import {MatLegacySnackBar as MatSnackBar} from '@angular/material/legacy-snack-bar';
 import {StepperSelectionEvent} from '@angular/cdk/stepper';
 import {PHONE_REGEX, IDE_REGEX} from '../../_helpers/regex';
+import {ConstantsService} from '../../constants.service';
 
 @Component({
   selector: 'gs2-register',
@@ -19,6 +20,14 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   @HostBinding('class') class = 'main-container';
   @ViewChild('firstInput') firstInput: ElementRef;
+
+  // Constants
+  readonly REQUIRED = ConstantsService.REQUIRED;
+  readonly WRONG_EMAIL = ConstantsService.WRONG_EMAIL;
+  readonly WRONG_PHONE = ConstantsService.WRONG_PHONE;
+  readonly NEXT = ConstantsService.NEXT;
+  readonly PREVIOUS = ConstantsService.PREVIOUS;
+
   startDate: Date;
 
   formCredentials = new UntypedFormGroup({

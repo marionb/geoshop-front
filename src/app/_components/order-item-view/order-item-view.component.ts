@@ -3,6 +3,7 @@ import {IOrderItem, Order} from '../../_models/IOrder';
 import {GeoshopUtils} from '../../_helpers/GeoshopUtils';
 import {ApiOrderService} from '../../_services/api-order.service';
 import {MatLegacySnackBar as MatSnackBar} from '@angular/material/legacy-snack-bar';
+import {ConstantsService} from '../../constants.service';
 
 @Component({
   selector: 'gs2-order-item-view',
@@ -16,6 +17,9 @@ export class OrderItemViewComponent implements OnInit {
   @Input() order: Order;
   @Input() showAction = true;
 
+  // Constants
+  readonly DOWNLAOD = ConstantsService.DOWNLAOD;
+
   constructor(private apiOrderService: ApiOrderService,
               private snackBar: MatSnackBar) {
   }
@@ -28,6 +32,14 @@ export class OrderItemViewComponent implements OnInit {
 
   getProductLabel(orderItem: IOrderItem) {
     return Order.getProductLabel(orderItem);
+  }
+
+  getOrderStatus(orderItem: IOrderItem): string {
+    let returnValue: string = '';
+    if (orderItem.status !== undefined && ConstantsService.ORDER_STATUS.hasOwnProperty(orderItem.status)) {
+      returnValue = ConstantsService.ORDER_STATUS[orderItem.status];
+    }
+    return returnValue;
   }
 
   downloadOrder(event: MouseEvent, id: number) {

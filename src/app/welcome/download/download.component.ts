@@ -14,6 +14,7 @@ import { ApiOrderService } from '../../_services/api-order.service';
 import { ConfigService} from '../../_services/config.service';
 import { MapService} from '../../_services/map.service';
 import Geometry from 'ol/geom/Geometry';
+import { ConstantsService } from 'src/app/constants.service';
 
 
 @Component({
@@ -30,6 +31,9 @@ export class DownloadComponent implements OnInit, OnDestroy {
   order: Order;
   minimap: Map;
   vectorSource: VectorSource<Geometry>;
+
+  // Constants
+  readonly DOWNLAOD = ConstantsService.DOWNLAOD;
 
   constructor(
     private apiOrderService: ApiOrderService,

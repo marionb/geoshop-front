@@ -45,3 +45,18 @@ ng serve
 **TODO: is not tested!**
 
 An `.env.sample` is provided as an example.
+
+
+## TODO:
+
+- [ ] There are three forms that are used that are similar and re use a lot of the same code. Unify them into one comonent. The forms are:
+
+	- geoshop-front/src/app/auth/register/register.component.html
+	- geoshop-front/src/app/account/profile/modify-profile.component.html
+	- geoshop-front/src/app/account/new-order/new-order.component.html
+
+- [ ] Update deprecated external libraries
+
+- [ ] Add translation files for translation into german
+
+- [ ] Make the TVA number a variable that is set in the top level settings or from the DB - perhaps together with the BE
