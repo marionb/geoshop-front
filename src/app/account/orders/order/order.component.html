@@ -20,13 +20,13 @@
       <span [class]="panel.expanded ? '' : 'text-ellipsis-2'">{{order?.description}}</span>
       <button class="download-button" mat-raised-button color="warn"
               *ngIf="order?.status === 'DRAFT' || (selectedOrder && selectedOrder.isQuotationCalculationFinished)"
-              (click)="deleteOrder($event)">
+              (click)="deleteOrder($event)" i18n="@@order.delete">
         Supprimer
       </button>
       <button class="download-button" mat-raised-button color="primary"
               *ngIf="order?.status === 'PROCESSED'"
               (click)="downloadOrder($event)">
-        Télécharger
+        {{ DOWNLAOD }}
       </button>
     </mat-panel-description>
   </mat-expansion-panel-header>
@@ -43,11 +43,11 @@
       <button *ngIf="selectedOrder?.isQuotationCalculationFinished"
               mat-raised-button
               class="info-background"
-              (click)="confirmOrder()">
+              (click)="confirmOrder()" i18n="@@order.confirm">
         Confirmer la commande
       </button>
-      <button *ngIf="order?.status === 'DRAFT'" mat-raised-button color="primary" (click)="pushBackToCart()">Remettre au panier</button>
-      <button *ngIf="order?.status !== 'DRAFT' && order?.status !== 'ARCHIVED'" mat-raised-button color="primary" (click)="duplicateInCart()">Dupliquer dans le panier</button>
+      <button *ngIf="order?.status === 'DRAFT'" mat-raised-button color="primary" (click)="pushBackToCart()" i18="order.back_to_chart">Remettre au panier</button>
+      <button *ngIf="order?.status !== 'DRAFT' && order?.status !== 'ARCHIVED'" mat-raised-button color="primary" (click)="duplicateInCart()" i18n="@@order.duplicate">Dupliquer dans le panier</button>
     </div>
   </div>
 

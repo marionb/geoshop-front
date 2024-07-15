@@ -243,7 +243,7 @@ export class MapService {
     }
     const matrixIds = [];
     for (let i = 0; i < this.resolutions.length; i += 1) {
-      matrixIds.push(`${i}`);
+      matrixIds.push(`${16 + i}`); // 16 is the first level of the WMTS
     }
 
     const tileGrid = new WMTSTileGrid({
@@ -365,7 +365,7 @@ export class MapService {
     const baseLayers = await this.generateBasemapLayersFromConfig();
     const view = new View({
       projection: this.projection,
-      center: fromLonLat([6.80, 47.05], this.projection),
+      center: this.configService.config.initialCenter,
       zoom: 2,
       resolutions: this.resolutions,
       constrainResolution: true

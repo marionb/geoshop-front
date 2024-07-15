@@ -19,7 +19,7 @@ export class DialogMetadataComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: IMetadata,
     private configService: ConfigService
   ) {
-    this.mediaUrl = this.configService.config?.mediaUrl;
+    this.mediaUrl = this.configService.config?.mediaUrl ? `${this.configService.config.mediaUrl}/` : '';
   }
 
   ngOnInit(): void {

@@ -5,6 +5,7 @@ import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {MatLegacySnackBar as MatSnackBar} from '@angular/material/legacy-snack-bar';
 import {ActivatedRoute, Router} from '@angular/router';
+import { ConstantsService } from 'src/app/constants.service';
 
 @Component({
   selector: 'gs2-reset',
@@ -20,6 +21,9 @@ export class ResetComponent implements OnInit, OnDestroy {
   private token: string;
   private uid: string;
   private successMessage = 'Votre nouveau mot de passe a bien été pris en compte. Vous pouvez vous authentifier.';
+
+  // Constants
+  readonly REQUIRED = ConstantsService.REQUIRED
 
   passwords = new UntypedFormGroup({
     password: new UntypedFormControl('', Validators.required),

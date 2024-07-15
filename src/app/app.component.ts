@@ -13,7 +13,7 @@ import * as fromAuth from './_store/auth/auth.action';
 })
 export class AppComponent implements OnDestroy {
 
-  private refreshTokenInterval: number;
+  private refreshTokenInterval: NodeJS.Timeout | number; // TODO this is breaking the build it was originaly set to type number
 
   title = 'front';
   subTitle = '';
@@ -31,9 +31,9 @@ export class AppComponent implements OnDestroy {
 
         if (navEnd instanceof NavigationEnd) {
           if (navEnd.url.indexOf('orders') > -1) {
-            this.subTitle = `Mes commandes`;
+            this.subTitle = $localize `Mes commandes`;
           } else if (navEnd.url.indexOf('new-order') > -1 && numberOfItemInTheCart > 0) {
-            this.subTitle = `Votre commande de ${numberOfItemInTheCart} produits`;
+            this.subTitle = $localize `Votre commande de ${numberOfItemInTheCart} produits`;
           } else {
             this.subTitle = '';
           }

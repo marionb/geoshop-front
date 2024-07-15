@@ -6,15 +6,15 @@
     <mat-form-field color="primary">
       <input type="text"
              matInput
-             placeholder="Rechercher un lieu ou une paire de coordonnées..."
+             i18n-placeholder placeholder="Rechercher un lieu ou une paire de coordonnées..."
              formControlName="search"
              [matAutocomplete]="autoGroup">
   
       <div matSuffix class="flex-row">
         <mat-spinner *ngIf="isSearchLoading" diameter="13" color="accent" style="margin-right: 10px"></mat-spinner>
         <button
-          matTooltip="Effacer"
-          aria-label="Effacer"
+          i18n-matTooltip matTooltip="Effacer"
+          i18n-aria-label aria-label="Effacer"
           mat-button color="accent" *ngIf="shouldDisplayClearButton" mat-icon-button
                 (click)="searchCtrl?.setValue('');shouldDisplayClearButton = false;">
           <mat-icon>close</mat-icon>
@@ -29,7 +29,7 @@
           </mat-option>
         </mat-optgroup>
       </mat-autocomplete>
-      <mat-hint>Une adresse, une parcelle, une commune, etc.</mat-hint>
+      <mat-hint i18n>Une adresse, une parcelle, une commune, etc.</mat-hint>
     </mat-form-field>
   </form>
 </mat-card>
@@ -37,30 +37,30 @@
 <div id="ol-scaleline" class="scale-line" [style.left]="leftPositionForButtons"></div>
 
 <div class="map-button-container" [style.left]="leftPositionForButtons">
-  <button matTooltip="Un clic droit ou un double clic termine le dessin"
-          aria-label="Un clic droit ou un double clic termine le dessin"
+  <button i18n-matTooltip matTooltip="Un clic droit ou un double clic termine le dessin"
+          i18n-aria-label aria-label="Un clic droit ou un double clic termine le dessin"
           [color]="isDrawing ? 'accent' : 'primary'"
           mat-mini-fab (click)="toggleDrawing('Free')">
     <mat-icon>edit</mat-icon>
   </button>
 
-  <button matTooltip="Dessiner un rectangle"
-          aria-label="Dessiner un rectangle"
+  <button i18n-matTooltip matTooltip="Dessiner un rectangle"
+          i18n-aria-label aria-label="Dessiner un rectangle"
           [color]="isDrawing ? 'accent' : 'primary'"
           mat-mini-fab (click)="toggleDrawing('Box')">
     <mat-icon>crop_3_2</mat-icon>
   </button>
 
-  <button matTooltip="Supprimer le dessin"
-          aria-label="Supprimer le dessin"
+  <button i18n-matTooltip matTooltip="Supprimer le dessin"
+          i18n-aria-label aria-label="Supprimer le dessin"
           color="primary" mat-mini-fab
           (click)="eraseDrawing()">
     <mat-icon>delete</mat-icon>
   </button>
 
   <button
-    matTooltip="Changer le fond de plan"
-    aria-label="Changer le fond de plan"
+    i18n-matTooltip matTooltip="Changer le fond de plan"
+    i18n-aria-label aria-label="Changer le fond de plan"
           mat-mini-fab color="primary" [matMenuTriggerFor]="menu">
     <mat-icon>layers</mat-icon>
   </button>
@@ -71,8 +71,8 @@
     </button>
   </mat-menu>
 
-  <button matTooltip="Importer KML ou glisser-déposer le KML sur la carte"
-          aria-label="Importer KML ou glisser-déposer le KML sur la carte"
+  <button i18n-matTooltip matTooltip="Importer KML ou glisser-déposer le KML sur la carte"
+          i18n-aria-label aria-label="Importer KML ou glisser-déposer le KML sur la carte"
           color="primary"
           mat-mini-fab
           (click)="openFileImport()">
@@ -81,8 +81,8 @@
   <input type="file" #fileUpload id="fileUpload" name="fileUpload" accept=".kml" style="display:none;" />
 
   <button
-    matTooltip="Saisie manuelle"
-    aria-label="Saisie manuelle"
+    i18n-matTooltip matTooltip="Saisie manuelle"
+    i18n-aria-label aria-label="Saisie manuelle"
     mat-mini-fab color="primary"
     (click)="toggleManualentry()">
     <mat-icon svgIcon="format"></mat-icon>

@@ -1,6 +1,6 @@
 <div class="actions-container">
   <mat-form-field class="filter-container" color="primary" appearance="fill">
-    <mat-label>Rechercher une commande...</mat-label>
+    <mat-label i18n>Rechercher une commande...</mat-label>
     <input matInput [formControl]="orderFilterControl">
     <button mat-button matPrefix mat-icon-button>
       <mat-icon>search</mat-icon>
@@ -16,7 +16,7 @@
   </mat-form-field>
 </div>
 
-<div class="not-found-container" *ngIf="!(isSearchLoading$|async) && currentOrders.length === 0">
+<div class="not-found-container" *ngIf="!(isSearchLoading$|async) && currentOrders.length === 0" i18n>
   Aucune commande n'a été trouvée.
 </div>
 

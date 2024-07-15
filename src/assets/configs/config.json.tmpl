@@ -1,7 +1,7 @@
 {
   "apiUrl": "${API_BASE_URL}${ROOTURL}",
   "mediaUrl": "${MEDIA_URL}",
-  "baseMapUrl": "https://sitn.ne.ch/mapproxy95/wmts/1.0.0/{layer}/{style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}",
+  "baseMapUrl": "https://wmts.geo.admin.ch/1.0.0/{layer}/{style}/current/{TileMatrixSet}/{TileMatrix}/{TileCol}/{TileRow}",
   "geocoderUrl": "https://sitn.ne.ch/search",
   "geocoderLayers": [
     "adresses_sitn", "nom_local_lieu_dit", "search_cours_eau",
@@ -10,13 +10,13 @@
   ],
   "contact": {
     "phone": {
-      "label": "+41 32 889 57 63",
-      "number": "+41328895763"
+      "label": "",
+      "number": ""
     },
-    "email": "sitn@ne.ch"
+    "email": "info@geogr.ch"
   },
   "initialCenter": [
-    2551473.73, 1211195.03
+    2765505.527577451, 1173931.8492200195
   ],
   "initialExtent": [
     2420000, 1030000, 2900000, 1360000
@@ -25,27 +25,18 @@
   "epsg": "EPSG:2056",
   "basemaps": [
     {
-      "id": "plan_cadastral",
-      "label": "Plan cadastral",
-      "description": "Plan cadastral",
-      "thumbUrl": "assets/images/cadastre.png",
-      "matrixSet": "EPSG2056",
-      "format": "png"
-    },
-    {
-      "id": "plan_ville",
-      "label": "Plan de ville",
-      "description": "Plan de ville",
+      "id": "ch.swisstopo.pixelkarte-farbe",
+      "label": "Landeskarten (farbig)",
+      "description": "Landeskarten (farbig)",
       "thumbUrl": "assets/images/planville.png",
-      "matrixSet": "EPSG2056",
-      "format": "png"
-    },
-    {
-      "id": "ortho",
-      "label": "Orthophotos",
-      "description": "Orthophotos",
-      "thumbUrl": "assets/images/mixte.jpg",
-      "matrixSet": "EPSG2056",
+      "matrixSet": "2056",
+      "format": "jpeg"
+    },{
+      "id": "ch.swisstopo.pixelkarte-grau",
+      "label": "Karte Grau",
+      "description": "Karte Grau",
+      "thumbUrl": "assets/images/cadastre.png",
+      "matrixSet": "2056",
       "format": "jpeg"
     }
   ],

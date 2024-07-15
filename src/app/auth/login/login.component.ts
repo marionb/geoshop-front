@@ -5,6 +5,7 @@ import {AppState} from '../../_store';
 import * as AuthActions from '../../_store/auth/auth.action';
 import {ICredentials} from '../../_models/IIdentity';
 import {ActivatedRoute} from '@angular/router';
+import { ConstantsService } from 'src/app/constants.service';
 
 @Component({
   selector: 'gs2-login',
@@ -14,6 +15,10 @@ import {ActivatedRoute} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   @HostBinding('class') class = 'main-container';
+
+  // Constants
+  readonly REQUIRED = ConstantsService.REQUIRED;
+  readonly LOGIN = ConstantsService.LOGIN;
 
   form: UntypedFormGroup = new UntypedFormGroup({
     username: new UntypedFormControl('', Validators.required),

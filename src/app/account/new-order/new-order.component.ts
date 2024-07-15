@@ -21,6 +21,7 @@ import {Router} from '@angular/router';
 import * as fromCart from '../../_store/cart/cart.action';
 import {MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef} from '@angular/material/legacy-dialog';
 import {ConfirmDialogComponent} from '../../_components/confirm-dialog/confirm-dialog.component';
+import { ConstantsService } from 'src/app/constants.service';
 
 @Component({
   selector: 'gs2-new-order',
@@ -34,6 +35,15 @@ export class NewOrderComponent implements OnInit, OnDestroy {
   @HostBinding('class') class = 'main-container';
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild('stepper') stepper: MatStepper;
+
+  // constants
+  readonly REQUIRED = ConstantsService.REQUIRED;
+  readonly WRONG_EMAIL = ConstantsService.WRONG_EMAIL;
+  readonly WRONG_PHONE = ConstantsService.WRONG_PHONE;
+  readonly NEXT = ConstantsService.NEXT;
+  readonly PREVIOUS = ConstantsService.PREVIOUS;
+  readonly BACK: string = $localize `Réinitialiser`;
+
 
   orderFormGroup: UntypedFormGroup;
   addressChoiceForm: UntypedFormGroup;
@@ -63,7 +73,7 @@ export class NewOrderComponent implements OnInit, OnDestroy {
   }
 
   get IsOrderTypePrivate() {
-    return this.orderFormGroup?.get('orderType')?.value?.name === 'Privé';
+    return this.orderFormGroup?.get('orderType')?.value?.name === ConstantsService.ORDERTYPE_PRIVATE;
   }
 
   get orderTypeCtrl() {
@@ -180,11 +190,20 @@ export class NewOrderComponent implements OnInit, OnDestroy {
       undefined;
   }
 
+  // FIXME this is a duplication of the same function in the order-item-view.component.ts
+  getOrerStatus(orderItem: IOrderItem): string {
+    let returnValue: string = '';
+    if (orderItem.status !== undefined && ConstantsService.ORDER_STATUS.hasOwnProperty(orderItem.status)) {
+      returnValue = ConstantsService.ORDER_STATUS[orderItem.status];
+    }
+    return returnValue;
+  }
+
   private getOrderType(id: string | number) {
     return this.orderTypes.find(x => typeof id === 'number' ?
       id === x.id : id === x.name) || {
       id: 1,
-      name: 'Privé'
+      name: ConstantsService.ORDERTYPE_PRIVATE
     };
   }
 
@@ -200,7 +219,7 @@ export class NewOrderComponent implements OnInit, OnDestroy {
     });
     this.orderTypeCtrl?.valueChanges.subscribe(
       (choice) => {
-        if (choice.name === 'Privé') {
+        if (choice.name === ConstantsService.ORDERTYPE_PRIVATE) {
           this.addressChoiceCtrl?.setValue('1');
         } else {
           this.addressChoiceCtrl?.setValue('2');
